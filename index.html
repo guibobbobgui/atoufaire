@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATOUFAIRE – Paysage, Travaux & Services à Mulhouse, Brunstatt, Didenheim | Alsace</title>
+  <meta name="description" content="ATOUFAIRE, votre entreprise de confiance en Alsace depuis 2009. Paysage, rénovation, travaux, multi-services à Mulhouse, Brunstatt et Didenheim. Devis gratuit : 06 26 42 93 85." />
+  <meta name="keywords" content="paysage Mulhouse, travaux rénovation Alsace, multi-services Brunstatt, aménagement jardin Didenheim, ATOUFAIRE" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="ATOUFAIRE – Paysage, Travaux & Services en Alsace" />
+  <meta property="og:description" content="Depuis 2009, ATOUFAIRE réalise vos projets de paysage, rénovation et services à Mulhouse et alentours." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.atoufaire.com" />
+  <link rel="canonical" href="https://www.atoufaire.com/" />
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ATOUFAIRE",
+    "description": "Entreprise de paysage, travaux de rénovation et multi-services en Alsace depuis 2009.",
+    "url": "https://www.atoufaire.com",
+    "telephone": "+33626429385",
+    "email": "contact@atoufaire.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mulhouse",
+      "addressRegion": "Alsace",
+      "addressCountry": "FR"
+    },
+    "areaServed": ["Mulhouse", "Brunstatt", "Didenheim", "Alsace"],
+    "foundingDate": "2009",
+    "serviceType": ["Paysage", "Travaux de rénovation", "Multi-services", "Aménagement extérieur"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;500;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --green: #2d6a2d;
+      --green-light: #3d8b3d;
+      --green-dark: #1a4a1a;
+      --orange: #e87722;
+      --orange-light: #f59340;
+      --dark: #111;
+      --gray: #444;
+      --light-gray: #f5f5f3;
+      --white: #fff;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body: 'Lato', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 70px;
+      background: rgba(17,17,17,0.95);
+      backdrop-filter: blur(8px);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.8rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--orange); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 2px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--orange-light); color: var(--white) !important; }
+
+    /* hamburger */
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .burger span { display: block; width: 26px; height: 2px; background: var(--white); transition: 0.3s; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #0d1f0d 0%, #1a3a1a 50%, #0d2a0d 100%);
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(45,106,45,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45,106,45,0.15) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(45,106,45,0.2) 0%, transparent 60%);
+    }
+    .hero-photos {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 52%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 4px;
+      opacity: 0.5;
+    }
+    .hero-photos img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: saturate(0.7);
+    }
+    .hero-photos img:first-child {
+      grid-row: 1 / 3;
+      grid-column: 1 / 2;
+    }
+    .hero-gradient-mask {
+      position: absolute;
+      right: 50%;
+      top: 0; bottom: 0;
+      width: 300px;
+      background: linear-gradient(90deg, #0d1f0d, transparent);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 120px 40px 80px 80px;
+      max-width: 680px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid var(--orange);
+      padding: 5px 14px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-content h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero-content h1 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 2px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--orange); color: var(--white); }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,119,34,0.4); }
+    .btn-outline { border: 2px solid rgba(255,255,255,0.4); color: var(--white); }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 50px;
+      left: 80px;
+      display: flex;
+      gap: 48px;
+      z-index: 2;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .stat-item { text-align: left; }
+    .stat-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-num span { color: var(--orange); }
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 40px; }
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--gray);
+      max-width: 560px;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--light-gray); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+      margin-top: 60px;
+    }
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+      padding: 48px 36px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--orange);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.3s;
+    }
+    .service-card:hover::before { transform: scaleY(1); }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      color: var(--green-dark);
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--gray);
+    }
+    .service-list {
+      list-style: none;
+      margin-top: 16px;
+    }
+    .service-list li {
+      font-size: 0.85rem;
+      color: var(--gray);
+      padding: 4px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-list li::before {
+      content: '→';
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    /* ── REALISATIONS ── */
+    #realisations { background: var(--dark); }
+    #realisations .section-title { color: var(--white); }
+    #realisations .section-desc { color: rgba(255,255,255,0.6); }
+
+    .gallery-filters {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 40px 0 32px;
+    }
+    .filter-btn {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      border-radius: 2px;
+      transition: 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 220px;
+      gap: 4px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+      display: block;
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .gallery-item-overlay span {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+      align-items: stretch;
+    }
+    .about-visual {
+      position: relative;
+      min-height: 600px;
+      background: var(--green-dark);
+      overflow: hidden;
+    }
+    .about-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 40px;
+      right: -20px;
+      background: var(--orange);
+      color: var(--white);
+      padding: 24px 40px 24px 28px;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .about-content {
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--light-gray);
+    }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .about-feature-icon {
+      width: 40px; height: 40px;
+      background: var(--green);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .about-feature h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .about-feature p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--green-dark); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-desc { color: rgba(255,255,255,0.6); }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      margin-top: 60px;
+      align-items: start;
+    }
+    .contact-info { }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .contact-item-icon {
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .contact-item h4 {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+    .contact-item p, .contact-item a {
+      font-size: 1.1rem;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 300;
+    }
+    .contact-item a:hover { color: var(--orange-light); }
+
+    .contact-form {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 48px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      padding: 14px 16px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+    }
+    .form-group select option { background: var(--green-dark); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--orange); }
+    footer p { font-size: 0.85rem; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--orange); }
+
+    /* ── SCROLL CTA ── */
+    .scroll-cta {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      background: var(--orange);
+      color: var(--white);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(232,119,34,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .scroll-cta:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(232,119,34,0.5); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-item.wide { grid-column: span 1; }
+      #about { grid-template-columns: 1fr; }
+      .about-visual { min-height: 350px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(17,17,17,0.98); padding: 20px; gap: 16px; }
+      .nav-links.open { display: flex; }
+      .burger { display: flex; }
+      .hero-photos { display: none; }
+      .hero-content { padding: 100px 20px 60px; }
+      .hero-stats { left: 20px; gap: 24px; }
+      .hero-stats .stat-num { font-size: 1.6rem; }
+      section { padding: 70px 20px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-content { padding: 50px 24px; }
+      .about-features { grid-template-columns: 1fr; }
+      .contact-form { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 30px 20px; }
+      .footer-links { justify-content: center; flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a class="nav-logo" href="#hero">ATOU<span>FAIRE</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#realisations">Réalisations</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#contact" class="nav-cta">Devis gratuit</a></li>
+    </ul>
+    <div class="burger" id="burger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Accueil ATOUFAIRE">
+    <div class="hero-grid"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-photos" aria-hidden="true">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhQ37djPewc1qOXxp-kAFnigvepvdNKuHfEaq59Y3LT9TK7KJ8sxOKKhOQshLHlzvcExx8XQBVjaCjlbZJ0l9P-micWiThqKXwD6yzL6KE1LV4lJW3d2S2EE-z6P9thyphenhyphenfQRumRvPz57dcj/s400/74602090_10157938117641514_5471940900932288512_o.jpg" alt="" />
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgF1C8k-sD56yRpxQvAMTDdIDRKktBkazdI2akqOvfMbI8DlSJWiSxbZ1Nl_mwYRov_X0XJwlguc4cqLV5iA6B2XADZm3pkf4TtsNG3i28Wps816UJmx66loMFd-Nm2wZ64lHd8rxVSAcU/s400/Iphone+141.jpg" alt="" />
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9BxvS2GPFece9msJlmFJWIavcw-SLKe-mjRzv37_M9akWkPcRQ8j2TB69fYDY1ps9T5Q40_F2bWCP_2avO4dMNq3-eLGXMejIIZWamBX9JsKwSfz6oaTdsSs866r8guGIj7eIwbfnd_bo/s400/20131025_163139.jpg" alt="" />
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJL2NdNkP1Yric4G0IN0_4Of7LDGgIhxPAWQ0nwIKBn6AhMFtQrzluo_MPZm9tVNk6XfHGqEu81U7GLxDrIUsSouNvpXAqbWSq24meRXXVUxD8xOg74VG8nwz4JrFeXxaYYX0QZF2BT-Si/s400/elagage.jpg" alt="" />
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDTKCvJSIIU96xs-6qT8Ply14v9nxeoOoTJZne_8WAhmH4wz1iJabJARejZvrIpvThYGcWfGYtS-2DSceAsJdq3AZC_Tt7ZxAPC1Cj9RKQ3_KO1587taASQR2JGU1rZ7uD03k8hIACxiAE/s400/Aventin.jpg" alt="" />
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcti6-IGeaXSQ72YbFiBD7YX36lMgfsx7d9QQtPDUYqjXAQ3QJc9sadre1L0_bgvkLpwkJxr69s4ZuUfYefj6yfwukeLYQOeFNGWIBGW6zDKMSj8gyZl_b9aexdLcBWDJ6oMsXpd-2w2nF/s400/Pose+Lambri+Morschwiller+copie.jp" alt="" />
+    </div>
+    <div class="hero-gradient-mask" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">Mulhouse · Brunstatt · Didenheim · Alsace</div>
+      <h1>Votre projet,<br /><em>notre métier.</em></h1>
+      <p>Depuis 2009, ATOUFAIRE réalise vos travaux de paysage, rénovation et multi-services avec rigueur et passion. Artisans locaux, résultats durables.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Demander un devis ↗</a>
+        <a href="#realisations" class="btn btn-outline">Nos réalisations</a>
+      </div>
+    </div>
+
+    <div class="hero-stats" aria-label="Chiffres clés">
+      <div class="stat-item">
+        <div class="stat-num">15<span>+</span></div>
+        <div class="stat-label">Ans d'expérience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">500<span>+</span></div>
+        <div class="stat-label">Chantiers réalisés</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Domaines d'expertise</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="section-label">Ce que nous faisons</div>
+    <h2 class="section-title" id="services-title">Nos domaines<br />d'expertise</h2>
+    <p class="section-desc">Du jardin à la salle de bain, nous intervenons sur tous vos projets avec le même souci du détail et de la qualité.</p>
+
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <span class="service-icon">🌿</span>
+        <h3>Paysage & Extérieur</h3>
+        <p>Création et entretien d'espaces verts, aménagements paysagers sur mesure pour sublimer votre cadre de vie.</p>
+        <ul class="service-list">
+          <li>Élagage & abattage</li>
+          <li>Plantation (oliviers, haies, arbres)</li>
+          <li>Dallage & escaliers extérieurs</li>
+          <li>Terrasses bois & minérales</li>
+          <li>Aménagement mini-piscine</li>
+          <li>Création de jardins</li>
+        </ul>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="service-icon">🔨</span>
+        <h3>Travaux & Rénovation</h3>
+        <p>Petits et gros travaux de rénovation intérieure avec des finitions soignées et des délais respectés.</p>
+        <ul class="service-list">
+          <li>Rénovation salle de bain</li>
+          <li>Réfection cuisine équipée</li>
+          <li>Renovation salon & pièces à vivre</li>
+          <li>Isolation combles & plafonds</li>
+          <li>Pose de lambris & carrelage</li>
+          <li>Panneaux solaires</li>
+        </ul>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="service-icon">⚙️</span>
+        <h3>Multi-Services</h3>
+        <p>Une gamme complète de services pour particuliers et entreprises, adaptée à tous vos besoins du quotidien.</p>
+        <ul class="service-list">
+          <li>Déménagement</li>
+          <li>Portails & clôtures</li>
+          <li>Prestations aux entreprises</li>
+          <li>Petites réparations</li>
+          <li>Nettoyage & entretien</li>
+          <li>Travaux divers</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- RÉALISATIONS -->
+  <section id="realisations" aria-labelledby="realisations-title">
+    <div class="section-label">Notre travail</div>
+    <h2 class="section-title" id="realisations-title" style="color:var(--white)">Nos réalisations</h2>
+    <p class="section-desc">Des projets concrets, des clients satisfaits, un savoir-faire qui se voit.</p>
+
+    <div class="gallery-filters" role="group" aria-label="Filtres galerie">
+      <button class="filter-btn active" data-filter="all">Tout voir</button>
+      <button class="filter-btn" data-filter="paysage">Paysage</button>
+      <button class="filter-btn" data-filter="travaux">Travaux</button>
+      <button class="filter-btn" data-filter="services">Services</button>
+    </div>
+
+    <div class="gallery-grid" role="list">
+      <div class="gallery-item wide reveal" data-cat="paysage" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhQ37djPewc1qOXxp-kAFnigvepvdNKuHfEaq59Y3LT9TK7KJ8sxOKKhOQshLHlzvcExx8XQBVjaCjlbZJ0l9P-micWiThqKXwD6yzL6KE1LV4lJW3d2S2EE-z6P9thyphenhyphenfQRumRvPz57dcj/s400/74602090_10157938117641514_5471940900932288512_o.jpg" alt="Aménagement mini piscine et terrasse à Wittenheim" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Mini piscine — Wittenheim</span></div>
+      </div>
+      <div class="gallery-item tall reveal" data-cat="travaux" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFEWcICWTB__7Bl_6RcQibZy6v2ION-wixA0Ls3KlMC8vhu1yYL3jnkH81QtqsckaZeKWA7handd1c2ZYGo6T-59lyvng6Hxdpn0pLlE18baAtWdTJTfFCaKE-UbrRvido-x0RWUwncb55/s400/IMG_5520.JPG" alt="Rénovation salle de bain Dietwiller" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Rénovation SDB — Dietwiller</span></div>
+      </div>
+      <div class="gallery-item reveal" data-cat="paysage" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgF1C8k-sD56yRpxQvAMTDdIDRKktBkazdI2akqOvfMbI8DlSJWiSxbZ1Nl_mwYRov_X0XJwlguc4cqLV5iA6B2XADZm3pkf4TtsNG3i28Wps816UJmx66loMFd-Nm2wZ64lHd8rxVSAcU/s400/Iphone+141.jpg" alt="Dallage Illfurth" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Dallage — Illfurth</span></div>
+      </div>
+      <div class="gallery-item reveal" data-cat="paysage" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9BxvS2GPFece9msJlmFJWIavcw-SLKe-mjRzv37_M9akWkPcRQ8j2TB69fYDY1ps9T5Q40_F2bWCP_2avO4dMNq3-eLGXMejIIZWamBX9JsKwSfz6oaTdsSs866r8guGIj7eIwbfnd_bo/s400/20131025_163139.jpg" alt="Terrasse suspendue en bois" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Terrasse bois</span></div>
+      </div>
+      <div class="gallery-item reveal" data-cat="travaux" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEJPTQ_lzFaZvk2M_J71t2UU6ux-hWzakoFLdkLjTo__FCIGCK1-2MQ5xeicutGWf6yZoOyJXRk6cFGDBXAtime1yPho1BDcoudd9O0Mgw6s8Jn0hiGcp1ztQq2osg5_eM8dUi/s400/revo+salon1.jpg" alt="Rénovation salon" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Rénovation salon</span></div>
+      </div>
+      <div class="gallery-item reveal" data-cat="travaux" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5LJ1fqUENjLB3nL7Q9Zt5RNbS54XcYbnW2E3STrFAEO1FjOSUOTyY4IkJd6b3JNaFiAvSivj2ormD_kiX_Vlb0ayVqnd5s9oQsDwTrp-XuhmC_2LIMRSEvPThdAMvub1BuH/s400/Isolation+combles+copie.jpg" alt="Isolation combles" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Isolation combles</span></div>
+      </div>
+      <div class="gallery-item wide reveal" data-cat="paysage" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDTKCvJSIIU96xs-6qT8Ply14v9nxeoOoTJZne_8WAhmH4wz1iJabJARejZvrIpvThYGcWfGYtS-2DSceAsJdq3AZC_Tt7ZxAPC1Cj9RKQ3_KO1587taASQR2JGU1rZ7uD03k8hIACxiAE/s400/Aventin.jpg" alt="Aménagement minéral calcaire" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Aménagement minéral calcaire</span></div>
+      </div>
+      <div class="gallery-item reveal" data-cat="paysage" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJL2NdNkP1Yric4G0IN0_4Of7LDGgIhxPAWQ0nwIKBn6AhMFtQrzluo_MPZm9tVNk6XfHGqEu81U7GLxDrIUsSouNvpXAqbWSq24meRXXVUxD8xOg74VG8nwz4JrFeXxaYYX0QZF2BT-Si/s400/elagage.jpg" alt="Élagage" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Élagage</span></div>
+      </div>
+      <div class="gallery-item reveal" data-cat="services" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxeTrhiOLOz9_eA4iTmz5YdpdAV6ss8_vY9Xgl2U2dj05j9le2bdLgBlv5wfK5Ay5DrIr7dYTe5VulYQLFHVWozZHNPSZk3sbP5GGaKdrlgx1-5fzEvx99Gx1W1Fc2k81-A8tc36twGX-G/s400/IMG_2727.JPG" alt="Réfection portail Ridisheim" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Portail — Ridisheim</span></div>
+      </div>
+      <div class="gallery-item reveal" data-cat="paysage" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeGxNrcgyfz1GwBYrYOcapXs7SwJ3woAwIHFhjzhpyaZWz5RNyncw1OnlKzZR_m8nWZEqSt-gSaKwPFz7uZ-Q_BAdKF8ox8QUeecJ3LgCMz4rPXjWgImcNFBllGyd3hqwC0PfizPCax0XF/s400/Escalier+opus+en+ardoise+copie.jpg" alt="Escalier opus en ardoise" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Escalier ardoise</span></div>
+      </div>
+      <div class="gallery-item reveal" data-cat="travaux" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkso-OTL3h4e-NBHs57j1tngzPaCB_RxD22ovR1-lYCcyLSNluAzRot14Hb2Q6icOlszhy5tZikD7KJMl9OJSIW54zCedyToSJo7iBE-esRP7v1slXcjgobt-TnUaVCAfP1gPmEs1n1hdu/s400/revo+sdb1.jpg" alt="Rénovation SDB" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Rénovation SDB</span></div>
+      </div>
+      <div class="gallery-item reveal" data-cat="paysage" role="listitem">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi61OiQA2xgRNyC30r0cQ_XTMoRAAN6Hyzbu1SaMvbmwArwGd6q4OTvKp6jVxjK_UrO1YHyzbu1SaMvbmwArwGd6q4OTvKp6jVxjK-UbW-Nyjbu1SaMvbm7HSZkcfEjBk9iHFu1RG4iepdPcmHWnKBlOJkQ1r0972N-Tfb0I_fN39UC/s400/IMG_0243.JPG" alt="Plantation olivier 100 ans" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Plantation olivier centenaire</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="about-visual">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5GoeipFfFLTVX5O3D8R_bg5QXSr76T7eTBYIZwJkkfJh762w5kXWzqf8pfWSrUPckBa_ptaFwiZA-tLjegnuv0C-_ZQf4Vk5US6wMj6ugO5D0oLvCm47K3Z1t7iT-0SjvF31uTCl8__SL/s800/IMG_1199.JPG" alt="Réalisation terrasse bois ATOUFAIRE" />
+      <div class="about-badge">Depuis 2009<br />en Alsace</div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">Qui sommes-nous</div>
+      <h2 class="section-title" id="about-title">L'expertise locale<br />à votre service</h2>
+      <p class="section-desc">Née en 2009 à Mulhouse, ATOUFAIRE s'est construite sur la confiance de ses clients et la qualité de ses réalisations. Forte de la collaboration de plusieurs artisans partenaires, notre entreprise intervient sur tous types de chantiers — des jardins aux salles de bain — avec la même exigence.</p>
+      <div class="about-features">
+        <div class="about-feature reveal">
+          <div class="about-feature-icon">✓</div>
+          <div>
+            <h4>Expertise reconnue</h4>
+            <p>Plus de 15 ans de réalisations variées en Alsace</p>
+          </div>
+        </div>
+        <div class="about-feature reveal">
+          <div class="about-feature-icon">📍</div>
+          <div>
+            <h4>Ancrage local</h4>
+            <p>Mulhouse, Brunstatt, Didenheim et tout le Haut-Rhin</p>
+          </div>
+        </div>
+        <div class="about-feature reveal">
+          <div class="about-feature-icon">🤝</div>
+          <div>
+            <h4>Devis gratuit</h4>
+            <p>Étude personnalisée sans engagement</p>
+          </div>
+        </div>
+        <div class="about-feature reveal">
+          <div class="about-feature-icon">⭐</div>
+          <div>
+            <h4>Qualité garantie</h4>
+            <p>Travaux soignés, matériaux durables</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="section-label">Parlons de votre projet</div>
+    <h2 class="section-title" id="contact-title">Contactez-nous</h2>
+    <p class="section-desc">Un projet ? Une question ? Nous vous répondons rapidement et établissons votre devis gratuitement.</p>
+
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <h4>Téléphone</h4>
+            <a href="tel:+33626429385">06 26 42 93 85</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:contact@atoufaire.com">contact@atoufaire.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <h4>Zone d'intervention</h4>
+            <p>Mulhouse, Brunstatt, Didenheim<br />et tout le Haut-Rhin (68)</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div>
+            <h4>Disponibilité</h4>
+            <p>Lundi – Vendredi : 8h – 18h<br />Samedi sur rendez-vous</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" name="name" placeholder="Jean Dupont" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone" placeholder="06 XX XX XX XX" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="service">Type de prestation</label>
+          <select id="service" name="service">
+            <option value="">— Sélectionner —</option>
+            <option>Paysage & Jardin</option>
+            <option>Dallage & Terrasse</option>
+            <option>Rénovation intérieure</option>
+            <option>Salle de bain</option>
+            <option>Isolation</option>
+            <option>Multi-services</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Décrivez votre projet</label>
+          <textarea id="message" name="message" placeholder="Décrivez brièvement vos besoins, la surface, la localisation..."></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" style="width:100%;justify-content:center;" onclick="alert('Merci ! Nous vous contacterons sous 24h.\n\nEn attendant, appelez-nous : 06 26 42 93 85')">
+          Envoyer ma demande →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">ATOU<span>FAIRE</span></div>
+    <p>© 2025 ATOUFAIRE — Paysage, Travaux & Services en Alsace</p>
+    <ul class="footer-links" aria-label="Navigation footer">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#realisations">Réalisations</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <!-- Scroll to top -->
+  <a href="#hero" class="scroll-cta" aria-label="Retour en haut">↑</a>
+
+  <script>
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          e.target.style.transitionDelay = (i % 4) * 0.1 + 's';
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+
+    // Gallery filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        galleryItems.forEach(item => {
+          const show = filter === 'all' || item.dataset.cat === filter;
+          item.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

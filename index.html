@@ -1045,5 +1045,58 @@
       });
     });
   </script>
+  
+  <!-- Formspree contact -->
+  <script>
+    const btn     = document.getElementById('btn-submit');
+    const msgEl   = document.getElementById('form-message');
+
+    function showMsg(text, success) {
+      msgEl.textContent = text;
+      msgEl.style.display = 'block';
+      msgEl.style.background  = success ? 'rgba(45,106,45,0.35)' : 'rgba(200,50,50,0.25)';
+      msgEl.style.color       = success ? '#7ddb7d' : '#ff8888';
+      msgEl.style.border      = success ? '1px solid #3d8b3d' : '1px solid #cc3333';
+      msgEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    btn.addEventListener('click', async function () {
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const phone   = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        showMsg('⚠️ Merci de remplir les champs obligatoires (*).', false);
+        return;
+      }
+
+      btn.disabled     = true;
+      btn.textContent  = 'Envoi en cours…';
+
+      try {
+        const res = await fetch('https://formspree.io/f/xwvagdgk', {
+          method:  'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, service, message }),
+        });
+
+        if (res.ok) {
+          showMsg('✅ Message envoyé ! Nous vous répondrons sous 24h.', true);
+          ['name','email','phone','message'].forEach(id => document.getElementById(id).value = '');
+          document.getElementById('service').selectedIndex = 0;
+        } else {
+          const data = await res.json();
+          showMsg('❌ ' + (data?.errors?.[0]?.message || 'Erreur. Appelez-nous : 06 26 42 93 85'), false);
+        }
+      } catch {
+        showMsg('❌ Erreur réseau. Appelez-nous : 06 26 42 93 85', false);
+      } finally {
+        btn.disabled    = false;
+        btn.textContent = 'Envoyer ma demande →';
+      }
+    });  
+  </script>
 </body>
 </html>

@@ -652,6 +652,75 @@
     .scroll-cta:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(232,119,34,0.5); }
 
     /* ── ANIMATIONS ── */
+    /* ── LIGHTBOX ── */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0,0,0,0.92);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+#lightbox.open {
+  display: flex;
+}
+#lightbox img {
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: fadeUp 0.3s ease;
+  cursor: default;
+}
+#lightbox-caption {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  pointer-events: none;
+}
+#lightbox-close {
+  position: fixed;
+  top: 24px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+#lightbox-close:hover { opacity: 1; }
+#lightbox-prev,
+#lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  color: white;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  cursor: pointer;
+  padding: 12px 18px;
+  opacity: 0.7;
+  transition: opacity 0.2s, background 0.2s;
+}
+#lightbox-prev:hover,
+#lightbox-next:hover { opacity: 1; background: rgba(255,255,255,0.2); }
+#lightbox-prev { left: 20px; }
+#lightbox-next { right: 20px; }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -1005,7 +1074,14 @@
       </div>
     </div>
   </section>
-
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualisation image">
+  <button id="lightbox-close" aria-label="Fermer">✕</button>
+  <button id="lightbox-prev"  aria-label="Image précédente">‹</button>
+  <img id="lightbox-img" src="" alt="" />
+  <div id="lightbox-caption"></div>
+  <button id="lightbox-next"  aria-label="Image suivante">›</button>
+</div>
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">ATOU<span>FAIRE</span></div>
@@ -1060,6 +1136,72 @@
         });
       });
     });
+    // Lightbox
+const lightbox    = document.getElementById('lightbox');
+const lbImg       = document.getElementById('lightbox-img');
+const lbCaption   = document.getElementById('lightbox-caption');
+const lbClose     = document.getElementById('lightbox-close');
+const lbPrev      = document.getElementById('lightbox-prev');
+const lbNext      = document.getElementById('lightbox-next');
+
+let currentIndex  = 0;
+let visibleItems  = [];
+
+function openLightbox(index) {
+  visibleItems = [...document.querySelectorAll('.gallery-item')]
+    .filter(el => el.style.display !== 'none');
+  currentIndex = index;
+  updateLightbox();
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function updateLightbox() {
+  const item    = visibleItems[currentIndex];
+  const img     = item.querySelector('img');
+  const caption = item.querySelector('.gallery-item-overlay span');
+  lbImg.src        = img.src.replace('/s400/', '/s1200/');
+  lbImg.alt        = img.alt;
+  lbCaption.textContent = caption ? caption.textContent : '';
+}
+
+// Clic sur chaque image de la galerie
+document.querySelectorAll('.gallery-item').forEach((item, idx) => {
+  item.style.cursor = 'zoom-in';
+  item.addEventListener('click', () => {
+    const allItems = [...document.querySelectorAll('.gallery-item')]
+      .filter(el => el.style.display !== 'none');
+    const visibleIdx = allItems.indexOf(item);
+    openLightbox(visibleIdx);
+  });
+});
+
+lbClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+lbNext.addEventListener('click', e => {
+  e.stopPropagation();
+  currentIndex = (currentIndex + 1) % visibleItems.length;
+  updateLightbox();
+});
+lbPrev.addEventListener('click', e => {
+  e.stopPropagation();
+  currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+  updateLightbox();
+});
+
+// Navigation clavier
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape')      closeLightbox();
+  if (e.key === 'ArrowRight')  { currentIndex = (currentIndex + 1) % visibleItems.length; updateLightbox(); }
+  if (e.key === 'ArrowLeft')   { currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length; updateLightbox(); }
+});
   </script>
   
   <!-- Formspree contact -->
